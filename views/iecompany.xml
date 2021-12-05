@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- search barcos in tree view -->
+<record id="livel_barcos_search" model="ir.ui.view">
+	<field name="name">livel.barcos.search</field>
+	<field name="model">livel.barcos</field>
+	<field name="arch" type="xml">
+	<search string="Buscar Barco">
+		<field name="name"/>
+		<field name="bandera"/>
+		<field name="year"/>
+	</search>
+	</field>
+</record>
+
+<!-- Tree view barcos -->
+<record id="barcos_tree" model="ir.ui.view">
+	<field name="name">livel.barcos.tree</field>
+	<field name="model">livel.barcos</field>
+	<field name="arch" type="xml">
+	<tree string="Barcos" >
+		<field name="name"/>
+		<field name="bandera"/>
+		<field name="year"/>
+	</tree>
+	</field>
+</record>
+
+<!-- form barcos -->
+<record id="barcos_form" model="ir.ui.view">
+	<field name="name">livel.barcos.form</field>
+	<field name="model">livel.barcos</field>
+	<field name="arch" type="xml">
+		<form string="Barcos" >
+			<sheet>
+				<group>
+					  <group>
+                            <field name="name"/>
+                            <field name="bandera"/>
+                            <field name="year"/>
+					  </group>
+				</group>
+				<div class="oe_chatter">
+				<field name="message_follower_ids" widget="mail_followers"/>
+				<field name="activity_ids" widget="mail_activity"/>
+				<field name="message_ids" widget="mail_thread" options="{'post_refresh' : 'recipients'}"/>
+				</div>
+			</sheet>
+	</form>
+	</field>
+</record>
+
+<!-- action for Barcos -->
+<record id="action_barcos" model="ir.actions.act_window">
+	<field name="name">Barcos</field>
+	<field name="type">ir.actions.act_window</field>
+	<field name="res_model">livel.barcos</field>
+	<field name="view_mode">tree,form</field>
+	<field name="help" type="html">
+		<p class="o_view_nocontent_smiling_face">Crear Barco !</p>
+	</field>
+</record>
+
+
+<menuitem id="livel_barcos" name="Barcos" sequence="20" parent="livel_config" action="action_barcos"/>
+</odoo>

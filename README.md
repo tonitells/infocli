@@ -1,0 +1,1 @@
+infocli odoo14
